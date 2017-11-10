@@ -1,27 +1,18 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ListItem from './list-item';
+import React, {Component} from 'react';
 
-class List extends Component {
+import ListItem from './liste-item';
 
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-  }
 
-  render() {
-    return (
-      <div>
 
-        {this.props.data.map((item) => {
-          return <ListItem
-            key={item.id}
-            item={item}
-          />
-        })}
-      </div>
-    );
-  }
 
+class List extends Component{
+    render() {
+        return (
+            <div>
+                {this.props.data.map(row => <ListItem date={row.date} start={row.start} end={row.end} id={row.id}/>)}
+            </div>
+        );
+    }
 }
 
 export default List;
